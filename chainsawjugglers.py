@@ -78,8 +78,6 @@ def add_to_db(name, country, catches):
 
 #Add search option for database
 def ask_for_juggler_name():
-    while True:
-        try:
             name = input('Enter juggler name')
             if name != name in jugglers:
                 print('Please enter a name in the database')
@@ -87,8 +85,6 @@ def ask_for_juggler_name():
                 cur.execute('select * from jugglers where name = ?', (name))
                 for row in cur:
                     print(row)
-
-
 
 #Add ability to update a juggler's information
 def update_juggler():
@@ -103,9 +99,4 @@ def update_juggler():
 
 def delete_juggler():
     ask_for_juggler_name()
-    cur.execute('delete from jugglers where name = ?', (name)
-    cur.commit()
-
-
-if __name__ == '__main__':
-    main()
+    cur.execute('delete from jugglers where name = ?', (name))
